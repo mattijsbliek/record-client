@@ -1,0 +1,48 @@
+.nav-main {
+	position: fixed; top: 0; left: 0;
+	width: 100%;
+	@include bp-max($medium) {
+		background: rgba(255,255,255,0.95);
+		box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+	}
+	@include bp-min($medium) {
+		position: static; float: left; width: 20%;
+	}
+	@include bp-min($large) {
+		margin-left: 60px;
+	}
+}
+
+.nav-main > ul {
+	@include bare-list; display: flex; width: 100%;
+	@include bp-min($medium) {
+		display: block;
+	}
+}
+
+.nav-main li {
+	flex: 1;
+}
+
+.nav-main a {
+	display: block; padding: 0 10px;
+	font-weight: bold; line-height: 50px; text-align: center;
+	@include bp-min($medium) {
+		padding: 0 40px; text-align: left;
+	}
+}
+
+.nav-main .is-active {
+	position: relative;
+}
+
+.nav-main .is-active::after {
+	content: '';
+	position: absolute; bottom: 8px; left: 50%;
+	display: block; width: 8px; height: 8px; margin-left: -4px;
+	border: 2px solid $primaryColor; border-radius: 50%;
+	@include bp-min($medium) {
+		left: 20px; top: 50%; margin: -5px 0 0;
+		width: 10px; height: 10px;
+	}
+}

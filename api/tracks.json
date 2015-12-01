@@ -1,0 +1,16 @@
+{
+	"tracks": [
+		{
+			"id": 1,
+			"artist": "Whoop Whoop",
+			"title": "Doo whap whap",
+			"url": "/media/track.mp3"
+		},
+		{
+			"id": 2,
+			"artist": "Klabam",
+			"title": "Whatupdough?",
+			"url": "/media/track-2.mp3"
+		}
+	]
+}

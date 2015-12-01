@@ -1,0 +1,68 @@
+/**
+ * Record Shelf stylesheet
+ * Author: Mattijs Bliek
+ */
+
+/**
+ * Variables, modules, and functions
+ */
+@import 'variables';
+@import 'utility/functions';
+@import 'utility/mixins';
+
+/**
+ * Basic layout
+ */
+
+html {
+	height: 100%;
+	box-sizing: border-box; font-size: 62.5%; line-height: 1.4;
+	-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after { box-sizing: inherit; }
+
+body {
+	margin: 0; padding-top: 60px; color: $textColor;
+	font-family: $bodyFont; font-size: map-get($fontSizesSmall, body);
+	@include bp-min($medium) {
+		font-size: map-get($fontSizesMedium, body);
+	}
+}
+
+h1, h2, h3, p {
+	margin-top: 0;
+}
+
+h2 {
+	margin-bottom: 0; font-size: map-get($fontSizesSmall, h2);
+	@include bp-min($medium) {
+		font-size: map-get($fontSizesMedium, h2);
+	}
+}
+
+h3 {
+	margin-bottom: 0; font-size: map-get($fontSizesSmall, h3);
+	@include bp-min($medium) {
+		font-size: map-get($fontSizesMedium, h3);
+	}
+}
+
+a {
+	color: $textColor; text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+/**
+ * Modules
+ */
+
+@import 'album-grid';
+@import 'album-list';
+@import 'button';
+@import 'nav-main';
+@import 'wrapper';
+

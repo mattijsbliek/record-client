@@ -1,0 +1,21 @@
+.album-list {
+	@include bare-list;
+}
+
+.album-list a {
+	@include clearfix;
+	display: block; padding: 3px 6px;
+	border-bottom: 1px solid $lightestGrey;
+}
+
+.album-list img {
+	float: left; width: 60px; margin-right: 10px;
+}
+
+.album-list h2 {
+	margin-top: 10px;
+}
+
+.album-list h3 {
+	color: $mediumGrey; font-weight: normal;
+}

@@ -1,0 +1,30 @@
+.album-grid {
+	@include bare-list; @include clearfix; padding: 0 3px;
+}
+
+.album-grid > li {
+	float: left; width: 33.33333%; margin-bottom: 20px;
+	padding: 3px; text-align: center;
+	@include bp-min($small) {
+		width: 25%; padding: 5px;
+	}
+	@include bp-min($medium) {
+		width: 20%; padding: 0 10px;
+	}
+	@include bp-min($large) {
+		width: 16.666666667%; padding: 0 20px;
+	}
+}
+
+.album-grid img {
+	display: block; margin-bottom: 10px;
+}
+
+.album-grid h2,
+.album-grid h3 {
+	white-space: nowrap; text-overflow: ellipsis;
+}
+
+.album-grid h3 {
+	color: $mediumGrey; font-weight: normal;
+}

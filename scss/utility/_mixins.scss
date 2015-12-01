@@ -1,0 +1,92 @@
+/* ==========================================================================
+   mixins
+   ========================================================================== */
+
+
+/**
+ * Clearfix
+ * Actually an @extend, but we don't want to depend on inclusion order
+ *
+ * Usage:
+ * section { @include clearfix(); }
+ */
+@mixin clearfix() {
+  zoom: 1;
+  &:after { height: 0; visibility: hidden; display: block; clear: both; content: ''; }
+}
+
+/*
+ * Bare list
+ * Author: Mattijs Bliek
+ *
+ * Get rid of list-style and padding
+ */
+@mixin bare-list() {
+	margin: 0; padding: 0; list-style-type: none;
+}
+
+/**
+ * For using breakpoints
+ * Usage:
+ * div { width: 60px;
+ *	@include breakpoint-min($small) { width: 80px; }
+ * }
+ *
+ * Pass true as a second parameter to toggle high dpi screens
+ */
+@mixin bp-min($point: 0em, $highDpi: false) {
+	@if $highDpi == true {
+		@media
+        (min-width: pxToEm($point)) and (-webkit-min-device-pixel-ratio: 2),
+        (min-width: pxToEm($point)) and (     -o-min-device-pixel-ratio: 2/1),
+        (min-width: pxToEm($point)) and (        min-device-pixel-ratio: 2),
+        (min-width: pxToEm($point)) and (                min-resolution: 192dpi),
+        (min-width: pxToEm($point)) and (                min-resolution: 2dppx) { @content; }
+	} @else {
+		@media (min-width: pxToEm($point)) { @content; }
+	}
+}
+
+@mixin bp-max($point: 0em, $highDpi: false) {
+	@if($highDpi == true) {
+		@media
+        (max-width: (pxToEm($point) - 0.0625em)) and (-webkit-min-device-pixel-ratio: 2),
+        (max-width: (pxToEm($point) - 0.0625em)) and (     -o-min-device-pixel-ratio: 2/1),
+        (max-width: (pxToEm($point) - 0.0625em)) and (        min-device-pixel-ratio: 2),
+        (max-width: (pxToEm($point) - 0.0625em)) and (                min-resolution: 192dpi),
+        (max-width: (pxToEm($point) - 0.0625em)) and (                min-resolution: 2dppx) { @content; }
+
+	} @else {
+		@media (max-width: (pxToEm($point) - 0.0625em)) { @content; }
+	}
+}
+
+@mixin bp-min-max($minPoint: 0em, $maxPoint: 0em, $highDpi: false) {
+	@if($highDpi == true) {
+		@media
+        (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) and (-webkit-min-device-pixel-ratio: 2),
+        (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) and (     -o-min-device-pixel-ratio: 2/1),
+        (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) and (        min-device-pixel-ratio: 2),
+        (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) and (                min-resolution: 192dpi),
+        (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) and (                min-resolution: 2dppx) { @content; }
+	} @else {
+		@media (min-width: pxToEm($minPoint)) and (max-width: (pxToEm($maxPoint) - 0.0625em)) { @content; }
+	}
+}
+
+/**
+ * For targetting high dpi screens
+ * Usage:
+ * div {
+ *	width: 30px; height: 30px; background: url('img.jpg');
+ *	@include high-dpi() { background: url('image-2x.jpg'); @include background-size(30px 30px); }
+ * }
+ */
+@mixin high-dpi() {
+	@media
+    (-webkit-min-device-pixel-ratio: 2),
+    (     -o-min-device-pixel-ratio: 2/1),
+    (        min-device-pixel-ratio: 2),
+    (                min-resolution: 192dpi),
+    (                min-resolution: 2dppx) { @content; }
+}

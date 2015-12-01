@@ -1,0 +1,67 @@
+/* ==========================================================================
+   variables
+   ========================================================================== */
+
+/*
+ * Colors
+ * The following is inspired by this article: http://sachagreif.com/sass-color-variables/
+ */
+$black: #222;
+$white: #ffffff;
+$red: #D0021B;
+
+$lightestGrey: #eee;
+$lightGrey: #ccc;
+$mediumGrey: #999;
+$darkGrey: #666;
+$darkestGrey: #444;
+
+$primaryColor: $red;
+
+$textColor: $black;
+
+/*
+ * Fonts
+ */
+$fontSizesSmall: (
+	h1: 32px,
+	h2: 12px,
+	h3: 11px,
+	body: 12px,
+	small: 14px,
+	tiny: 11px,
+	intro: 20px
+);
+
+$fontSizesMedium: (
+	h1: 52px,
+	h2: 15px,
+	h3: 15px,
+	body: 15px,
+	intro: 26px,
+	small: 18px,
+	tiny: 14px
+);
+
+$defaultLineHeight: 1.5;
+
+$bodyFont: sans-serif;
+$headingFont: sans-serif;
+
+/*
+ * z-index
+ * for stacking stuff
+ *
+ * define the stacking order for modules here
+ * within a module you should define it via
+ * the $module-z-index variable
+ */
+$z-index: (
+);
+
+// BREAKPOINTS
+// The following is inspired by this article: http://css-tricks.com/media-queries-sass-3-2-and-codekit/
+$small: 540;
+$medium: 720;
+$large: 1020;
+$extraLarge: 1400;

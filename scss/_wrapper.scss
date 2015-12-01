@@ -1,0 +1,9 @@
+.wrapper {
+	@include bp-min($medium) {
+		display: flex; width: 100%;
+	}
+}
+
+.wrapper main {
+	flex: 1;
+}
